@@ -16,7 +16,7 @@ Atualmente existem políticas de valor mínimo para um pedido:
 
 Abaixo o link para os selects de exemplo para validação do valor mínimo para pedido considerando: Plano de pagamento, cobrança e filial.
 
-ARQUIVO EXEMPLO
+[ARQUIVO EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/valor_minimo_pedido.sql)
 
 ## Planos de Pagamento e Cobrança
 
