@@ -1,4 +1,4 @@
-select * 
+select min(valorminimo) valorminimo 
   from (
         select vlminpedido valorminimo, codcob codigo, 'COBRANCA' tipo from pccob union all
         select vlminpedido valorminimo, to_char(codplpag) codigo, 'PLANO_PAGAMENTO' tipo  from pcplpag union all
