@@ -16,7 +16,13 @@ Atualmente existem políticas de valor mínimo para um pedido:
 
 Abaixo o link para os selects de exemplo para validação do valor mínimo para pedido considerando: Plano de pagamento, cobrança e filial.
 
-[ARQUIVO EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/valor_minimo_pedido.sql)
+[SQL VALIDAÇÃO PEDIDO MÍNIMO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/valor_minimo_pedido.sql)
+
+## Valor mínimo da parcela
+
+As parcelas podem ter um valor mínimo de acordo com o plano de pagamento selecionado.  Para exportar e/ou validar o valor mínimo para cada parcela seguir o exemplo de SQL abaixo:
+
+[SQL VALIDAÇÃO PARCELA MÍNIMA](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/valor_minimo_parcela.sql)
 
 ## Planos de Pagamento e Cobrança
 
