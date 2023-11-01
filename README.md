@@ -57,3 +57,9 @@ Politicas de preço fixo alteram o preço do produto para um novo preço sempre 
 		- CODGRUPOCLI = Código ddo grupo do cliente ou CODGRUPOCLI não informado
 
 Observação: Validar com o distribuidor se de fato todas as regras precisam ser validadas a fim de possível redução na complexidade
+
+## Limite de crédito do cliente
+
+O limite de crédito do cliente envolve uma série de cálculos e parâmetros. Além disso o limite é atualizado sempre que um novo pedido é criado para o cliente. Por isso a extração dos dados de limite de crédito do cliente irá utilizar uma função de banco de dados do próprio Winthor, o que garante um cálculo correto. Além disso é importante buscar novamente o limite de crédito disponível para os cliente sempre que possível, levando em consideração que podemos desprezar os clientes que não tiveram nenhum pedido desde a última atualização.
+
+Para fazer essa extração basta seguir o [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/limite_de_credito_cliente.sql), que já realiza o cálculo do limite utilizando a função do Winthor e também já possui as variáveis de data, hora e minuto, para desprezar clientes que não tiveram pedidos recentes.
