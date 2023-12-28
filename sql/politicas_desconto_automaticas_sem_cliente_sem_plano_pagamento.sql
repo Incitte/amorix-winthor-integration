@@ -1,14 +1,5 @@
 select p.codprod
       ,d.percdesc
-      ,d.codcli
-      ,d.numregiao
-      ,d.codativ
-      ,d.codpraca
-      ,d.codplpag
-      ,d.codfilial
-      ,d.codrede
-      ,d.dtinicio
-      ,d.dtfim
       ,d.qtini
       ,d.qtfim
   from pcprodut p inner join pcdesconto d
@@ -18,6 +9,9 @@ select p.codprod
                          and nvl(d.codprod, p.codprod) = p.codprod
                          and nvl(d.codprodprinc, p.codprodprinc) = p.codprodprinc
                          and nvl(d.codfornec, p.codfornec) = p.codfornec
-                         and nvl(d.codmarca, p.codmarca) = p.codmarca
-where d.alteraptabela = 'S' or d.aplicadesconto = 'S';
-  
+                         and nvl(d.codmarca, p.codmarca) = p.codmarca                  
+where (d.alteraptabela = 'S' or d.aplicadesconto = 'S')
+  and d.codcli is null and d.numregiao is null and d.codativ is null and d.codpraca is null and d.codrede is null -- politicas sem cliente
+  and d.dtfim > sysdate 
+  and (d.codfilial = &filial_venda or d.codfilial = null)
+  and d.codplpag is null; -- politicas sem plano
