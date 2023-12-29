@@ -24,39 +24,32 @@ As parcelas podem ter um valor mínimo de acordo com o plano de pagamento seleci
 
 ## Políticas comerciais automáticas
 
-Politicas comerciais automáticas devem somar um percentual do preço do produto sempre que houver um cadastro válido para o produto/pedido. E por isso ocorre em DUAS ETAPAS:
+Politicas comerciais automáticas devem somar um percentual do preço do produto sempre que houver um cadastro válido para o produto/pedido. De modo a facilitar a obtenção das politicas comerciais foi separada em quatro consultas, para termos um cenário mais aderente à OnFood. Além disso a validação para a política ser aplicada ou não pode ocorrer em DUAS ETAPAS:
 
-- Etapa do Produto:
-	- Extrair a lista de produtos elegíveis para as políticas comerciais vigentes conforme o [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas.sql)
+- Obtendo as políticas comerciais:
+	- Políticas por cliente e plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_por_cliente_com_plano_pagamento.sql)
+	- Políticass por cliente sem plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_por_cliente_sem_plano_pagamento.sql)
+	- Políticas sem cliente e com plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_sem_cliente_com_plano_pagamento.sql)
+	- Políticas sem cliente e sem plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_sem_cliente_sem_plano_pagamento.sql)
 - Etapa do Pedido
 	- Validar se as seguintes informações do pedido conferem com as políticas existentes para o produto:
-		- CODCLI= Códigodo cliente ou CODCLI não informado
-		- NUMREGIAO = Região do cliente ou NUMREGIAO não informado
-		- CODATIV = Código de atividade do cliente ou CODATIV não informado
-		- CODPRACA = Praça do cliente ou CODPRACA não informado
-		- CODPLAPAG = Plano de pagamento do pedido ou CODPLAPAG não informado
-		- CODFILIAL = Filial da venda ou CODFILIAL não informado
-		- CODREDE = Código da rede do cliente ou CODREDE não informado
+		- QTINI e QTFIM = Verificar se a quantidade comprada do produto está nesse intervalo
 
-Observação: Validar com o distribuidor se de fato todas as regras precisam ser validadas a fim de possível redução na complexidade
+Observações:
+- Validar com o distribuidor se de fato todas as regras precisam ser validadas a fim de possível redução na complexidade
+- Os termos "sem cliente" e "sem plano de pagamento" significam que as campanhas não fazem essa validação e por isso são válidas para TODOS os clientes ou planos de pagamento respectivamente.
 
 ## Políticas de Preço Fixo
 
-Politicas de preço fixo alteram o preço do produto para um novo preço sempre que houver um cadastro válido para o produto/pedido. E por isso ocorre em DUAS ETAPAS:
+Politicas de preço fixo alteram o preço do produto para um novo preço sempre que houver um cadastro válido para o produto/pedido.
 
-- Etapa do Produto:
-	- Extrair a lista de produtos elegíveis para as políticas comerciais vigentes conforme o [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politica_preco_fixo.sql)
-- Etapa do Pedido
-	- Validar se as seguintes informações do pedido conferem com as políticas existentes para o produto:
-		- NUMREGIAO = Região do cliente ou NUMREGIAO não informado
-		- CODPRACA = Praça do cliente ou CODPRACA não informado
-		- CODCLI= Códigodo cliente ou CODCLI não informado
-		- CODATIV = Código de atividade do cliente ou CODATIV não informado
-		- CODFILIAL = Filial da venda ou CODFILIAL não informado
-		- CODREDE = Código da rede do cliente ou CODREDE não informado
-		- CODGRUPOCLI = Código ddo grupo do cliente ou CODGRUPOCLI não informado
+- Extrair a lista de produtos elegíveis para as políticas comerciais vigentes conforme os exemplos abaixo:
+	- Preço fixo por cliente [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politica_preco_fixo_por_cliente.sql)
+	- Preço fixo sem cliente [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politica_preco_fixo_sem_cliente.sql)
 
-Observação: Validar com o distribuidor se de fato todas as regras precisam ser validadas a fim de possível redução na complexidade
+Observações:
+- Validar com o distribuidor se de fato todas as regras precisam ser validadas a fim de possível redução na complexidade
+- O termo "sem cliente" significa que as campanhas não fazem essa validação e por isso são válidas para TODOS os clientes.
 
 ## Limite de crédito do cliente
 
