@@ -28,7 +28,7 @@ Politicas comerciais automáticas devem somar um percentual do preço do produto
 
 - Obtendo as políticas comerciais:
 	- Políticas por cliente e plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_por_cliente_com_plano_pagamento.sql)
-	- Políticass por cliente sem plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_por_cliente_sem_plano_pagamento.sql)
+	- Políticas por cliente sem plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_por_cliente_sem_plano_pagamento.sql)
 	- Políticas sem cliente e com plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_sem_cliente_com_plano_pagamento.sql)
 	- Políticas sem cliente e sem plano de pagamento [SQL DE EXEMPLO](https://github.com/Incitte/amorix-winthor-integration/blob/main/sql/politicas_desconto_automaticas_sem_cliente_sem_plano_pagamento.sql)
 - Etapa do Pedido
