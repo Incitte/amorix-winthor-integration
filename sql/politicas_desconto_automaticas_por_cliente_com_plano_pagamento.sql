@@ -4,14 +4,15 @@ select p.codprod
       ,pl.codplpag
       ,d.qtini
       ,d.qtfim
+      ,d.precofixo
   from pcprodut p inner join pcdesconto d
-                          on nvl(d.codepto, p.codepto) = p.codepto
-                         and nvl(d.codsec, p.codsec) = p.codsec
-                         and nvl(d.codcategoria, p.codcategoria) = p.codcategoria
-                         and nvl(d.codprod, p.codprod) = p.codprod
-                         and nvl(d.codprodprinc, p.codprodprinc) = p.codprodprinc
-                         and nvl(d.codfornec, p.codfornec) = p.codfornec
-                         and nvl(d.codmarca, p.codmarca) = p.codmarca
+                          on (d.codepto = p.codepto or d.codepto is null)
+                         and (d.codsec = p.codsec or d.codsec is null)
+                         and (d.codcategoria = p.codcategoria or d.codcategoria is null)
+                         and (d.codprod = p.codprod or d.codprod is null)
+                         and (d.codprodprinc = p.codprodprinc or d.codprodprinc is null)
+                         and (d.codfornec = p.codfornec or d.codfornec is null)
+                         and (d.codmarca = p.codmarca or d.cocodmarcadsec is null)
                   inner join pcplpag pl
                           on pl.codplpag = d.codplpag
                    left join pcclient c
