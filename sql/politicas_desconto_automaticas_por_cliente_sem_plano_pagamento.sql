@@ -3,6 +3,8 @@ select p.codprod
       ,c.codcli
       ,d.qtini
       ,d.qtfim
+      ,d.dtini
+      ,d.dtfim
       ,d.precofixo
   from pcprodut p inner join pcdesconto d
                           on (d.codepto = p.codepto or d.codepto is null)
