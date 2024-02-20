@@ -3,6 +3,7 @@ select p.codprod
       ,c.codcli
       ,d.dtiniciovigencia
       ,d.dtfimvigencia
+      ,d.dtultalter
   from pcprodut p inner join pcprecoprom d
                           on d.codprod = p.codprod
                          and nvl(d.codusur, &usuario) = &usuario
