@@ -5,6 +5,8 @@ select p.codprod
       ,d.dtini
       ,d.dtfim
       ,d.precofixo
+      ,d.dataultalter
+      ,d.coddesconto
   from pcprodut p inner join pcdesconto d
                           on (d.codepto = p.codepto or d.codepto is null)
                          and (d.codsec = p.codsec or d.codsec is null)
