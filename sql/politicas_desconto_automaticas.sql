@@ -11,6 +11,8 @@ select p.codprod
       ,d.dtfim
       ,d.qtini
       ,d.qtfim
+      ,d.dataultalter
+      ,d.coddesconto
   from pcprodut p inner join pcdesconto d
                           on nvl(d.codepto, p.codepto) = p.codepto
                          and nvl(d.codsec, p.codsec) = p.codsec
